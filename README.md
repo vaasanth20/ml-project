@@ -191,4 +191,128 @@ Since you already pulled the latest remote changes in Step 3.3,The push will suc
 
 ### Merge Conflict
 
+**You updated a file on your local system**
+
+You edited README.md and committed it.
+
+**Before pulling, you updated the same file directly on GitHub**
+
+Now GitHub has a different version of the same file.
+
+So now:
+
+- Your local main has 1 new commit
+- GitHub origin/main has 1 different commit
+
+when we pull the code from the remote:
+```bash
+git pull origin main
+
+
+From https://github.com/vaasanth20/ml-project
+ * branch            main       -> FETCH_HEAD
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint:
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint:
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+```
+This is called diverged branches
+
+Ran:
+```bash
+git pull --no-rebase origin main
+
+Merge branch 'main' of https://github.com/vaasanth20/ml-project
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+
+From https://github.com/vaasanth20/ml-project
+ * branch            main       -> FETCH_HEAD
+Auto-merging README.md
+Merge made by the 'ort' strategy.
+ README.md | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+```
+Pull changes from GitHub and MERGE them with my local branch.
+
+**Why Git Opened the Commit Message Editor**
+
+Git is creating a merge commit.
+
+It is asking you:
+
+>"Please enter a commit message to explain this merge."
+
+This is normal.
+
+You usually just:
+
+- Press ESC
+- Type :wq
+- Press Enter
+
+it saves and exits editor.
+
+**What These Lines Mean**
+* the line: *
+```bash
+Merge branch 'main' of https://github.com/vaasanth20/ml-project
+```
+
+* Git merged: *
+
+- Your local commit
+- GitHub commit
+
+* This part: *
+```bash
+Auto-merging README.md
+```
+
+Git automatically combined both changes.
+There was no conflict
+
+* This part: *
+```bash
+Merge made by the 'ort' strategy.
+```
+
+"ort" is Git’s modern merge engine.
+It just means:
+
+> Git successfully merged the branches.
+
+Nothing is wrong.
+
+This part:
+```bash
+README.md | 15 ++++++++-------
+1 file changed, 8 insertions(+), 7 deletions(-)
+```
+
+This means:
+
+- 8 lines were added
+- 7 lines were removed 
+- In 1 file (README.md)
+
+**Final Result**
+
+Now your branch contains:
+
+- Your local changes
+- GitHub changes
+- A merge commit connecting them
 
