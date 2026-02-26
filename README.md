@@ -53,7 +53,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-This shows the current state of the working directory and staging area. It will list all untracked files (the four files you just created) in red.<br/>
+This shows the current state of the working directory and staging area. It will list all untracked files (the four files you just created) in red.
 
 
 
@@ -66,7 +66,7 @@ Goal: Stage specific files, commit with a meaningful message, create a GitHub re
 ```bash
 git add train.py utils.py
 ```
-git add moves specified files to the staging area. By listing only train.py and utils.py, we explicitly exclude predict.py and README.md from this commit.<br/>
+git add moves specified files to the staging area. By listing only train.py and utils.py, we explicitly exclude predict.py and README.md from this commit.
 
 
 ### Step 2.2 – Commit the Staged Changes
@@ -100,7 +100,7 @@ git remote -v
 
 ## Stage 3: Collaborative Workflow
 
-Goal: Safely synchronize remote teammate changes with your local work, commit your local changes, and push everything to GitHub in the correct order.<br/>
+Goal: Safely synchronize remote teammate changes with your local work, commit your local changes, and push everything to GitHub in the correct order.
 
 **Remote:**
     - Updated predict.py (in GitHub)
@@ -132,7 +132,7 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 
 ```
-Before doing anything, always check what state your working directory is in. This shows us which files are modified or untracked. we should see utils.py as modified and config.py as a new untracked file.<br/>
+Before doing anything, always check what state your working directory is in. This shows us which files are modified or untracked. we should see utils.py as modified and config.py as a new untracked file.
 
 
 ### Step 3.2 – Fetch Remote Changes (Optional but Recommended)
@@ -163,14 +163,14 @@ This command downloads the latest commits from the remote main branch and merges
 ```bash
 git add utils.py config.py
 ```
-Now stage your local changes. We stage both the modified utils.py and the brand-new config.py together.<br/>
+Now stage your local changes. We stage both the modified utils.py and the brand-new config.py together.
 
 
 ### Step 3.5 – Verify What is Staged
 ```bash
 git status
 ```
-Run git status again to confirm that utils.py and config.py are listed in green under 'Changes to be committed'.<br/>
+Run git status again to confirm that utils.py and config.py are listed in green under 'Changes to be committed'.
 
 
 ### Step 3.6 – Commit Your Local Changes
@@ -184,7 +184,8 @@ git commit -m "Update utils and add configuration module"
 ```bash
 git push origin main
 ```
-Since you already pulled the latest remote changes in Step 3.3,The push will succeed cleanly with no conflicts.<br/>
+Since you already pulled the latest remote changes in Step 3.3,The push will succeed cleanly with no conflicts.
+
 
 ## Issues
 
